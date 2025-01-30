@@ -69,15 +69,15 @@ class Game:
                 player = self.player1
             else:
                 player = self.player2
-            currturn ^= 1
             place = input('Enter x,y: ')
             x, y = place.split(' ')
             x, y = int(x), int(y)
             try:
                 win = self.board.check_win(player, x,y)
+                currturn ^= 1
             except:
                 print('Invalid Move')
-                currturn ^= 1
+
                 continue
             print(self.board)
         print(f'{player.name} Wins!')
